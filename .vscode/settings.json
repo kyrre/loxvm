@@ -1,0 +1,10 @@
+{
+    "rust-analyzer.server.extraEnv": {
+        "CARGO": "c:\\users\\kyrre\\.cargo\\.bin\\cargo.exe",
+        "RUSTC": "c:\\users\\kyrre\\.cargo\\.bin\\rustc.exe",
+    },
+    "rust-analyzer.runnableEnv": {
+        "PATH": "c:\\users\\kyrre\\.cargo\\.bin\\"
+    },
+
+}
