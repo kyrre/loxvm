@@ -1,7 +1,6 @@
-use std::ptr;
 use crate::value::Value;
 
-
+#[allow(non_camel_case_types)]
 #[derive(Clone, Debug, Copy, PartialEq)]
 #[repr(u8)]
 pub enum OpCode {

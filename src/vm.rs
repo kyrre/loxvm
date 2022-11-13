@@ -1,9 +1,10 @@
-use std::ptr;
-
 use crate::chunk::{Chunk, OpCode};
 use crate::debug::{disassemble_instruction, print_value};
 use crate::value::Value;
+use crate::compiler::Compiler;
 
+
+#[allow(non_camel_case_types)]
 pub enum InterpretResult {
     INTERPRET_OK,
     INTERPRET_COMPILE_ERROR,
@@ -22,11 +23,16 @@ impl<'a> VM<'a> {
             stack: Vec::new(),
         }
     }
+    pub fn interpret(source: &str) -> InterpretResult {
+    //    compile(source);
 
-    pub fn interpret(&mut self, chunk: &'a Chunk) -> InterpretResult {
-        self.chunk = Some(chunk);
-        self.run()
+       InterpretResult::INTERPRET_OK
     }
+
+    // pub fn interpret(&mut self, chunk: &'a Chunk) -> InterpretResult {
+        // self.chunk = Some(chunk);
+        // self.run()
+    // }
 
     pub fn run(&mut self) -> InterpretResult {
         use InterpretResult::*;
@@ -60,6 +66,7 @@ impl<'a> VM<'a> {
         INTERPRET_RUNTIME_ERROR
     }
 
+    #[allow(non_camel_case_types, non_snake_case)]
     fn BINARY_OP(&mut self, op: char) {
         if let (Value::Number(a), Value::Number(b)) = (self.pop(), self.pop()) {
             let result = match op {
